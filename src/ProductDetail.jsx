@@ -12,9 +12,7 @@ let flipState = null;
 export default function ProductDetail() {
     const navigate = useNavigate();
     const { state } = useLocation();
-
     const buttonRef = useRef();
-
     const handleBack = () => {
         captureFlipState('.flip , .title');
         gsap.to(
@@ -27,7 +25,6 @@ export default function ProductDetail() {
             })
         })
     }
-
     useGSAP(() => {
         const buttom = gsap.timeline();
         buttom.from(
@@ -39,10 +36,8 @@ export default function ProductDetail() {
             }
         )
     })
-
     useEffect(() => {
         runFlipAnimation(".flip , .title");
-
     }, []);
 
     if (!state) return <div className="p-10">محصولی یافت نشد.</div>;
