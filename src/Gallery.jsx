@@ -12,12 +12,14 @@ export default function Gallery() {
     const navigate = useNavigate();
 
     const handleClick = (item) => {
-        captureFlipState(`[data-flip-id="${item.id}"]`);
+        // captureFlipState(`[data-flip-id="${item.id}"],[data-flip-id="${item.title}"]`);
+        captureFlipState();
+
         navigate(`/product/${item.id}`, { state: item });
     };
 
     useEffect(() => {
-        runFlipAnimation(".flip");
+        runFlipAnimation(".flip , .title");
     }, []);
 
     return (
@@ -34,7 +36,7 @@ export default function Gallery() {
                         className="flip w-full h-40 object-cover rounded-lg shadow"
                         alt={item.title}
                     />
-                    <h2 className="mt-2 text-center text-lg flip">{item.title}</h2>
+                    <h2 data-flip-id={item.title} className="title mt-2 text-center text-lg flip">{item.title}</h2>
                 </div>
             ))}
         </div>

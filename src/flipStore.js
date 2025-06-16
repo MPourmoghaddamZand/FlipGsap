@@ -15,8 +15,6 @@ export function runFlipAnimation(targets = ".flip") {
             targets,
             duration: 0.5,
             ease: "power1.out",
-            absolute: true,
-            scale: true,
         });
         flipState = null;
     }
